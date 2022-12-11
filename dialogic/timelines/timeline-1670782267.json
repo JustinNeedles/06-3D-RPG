@@ -1,0 +1,117 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1670781465.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1670781507.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1670781507.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Thanks."
+		},
+		{
+			"character": "character-1670781465.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1670781507.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1670781507.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What?"
+		},
+		{
+			"character": "character-1670781507.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Do you want a score?"
+		},
+		{
+			"character": "character-1670781507.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ok"
+		},
+		{
+			"call_node": {
+				"arguments": [
+
+				],
+				"method_name": "makeScore",
+				"target_node_path": "/root/Game/ConversationPartner"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"character": "character-1670781507.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Here is how long it has been since you started."
+		},
+		{
+			"character": "character-1670781507.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okay..."
+		},
+		{
+			"character": "character-1670781507.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Feel free to leave."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1670782267.json",
+		"name": "FinalTalk"
+	}
+}

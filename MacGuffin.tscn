@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://models/godot_ball.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://models/logo_head.material" type="Material" id=2]
+[ext_resource path="res://models/logo_base.material" type="Material" id=3]
+[ext_resource path="res://models/logo_eyes.material" type="Material" id=4]
+[ext_resource path="res://Assets/zombieA.png" type="Texture" id=5]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 5 )
+metallic = 0.35
+roughness = 0.0
+normal_enabled = true
+normal_scale = 16.0
+ao_enabled = true
+ao_light_affect = 0.0
+ao_on_uv2 = false
+ao_texture_channel = 0
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.23
+
+[node name="MacGuffin" type="Spatial"]
+
+[node name="godot_ball" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = ExtResource( 3 )
+material/2 = ExtResource( 2 )
+material/3 = ExtResource( 4 )

@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Nature.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MacGuffin.gd" type="Script" id=3]
+[ext_resource path="res://MacGuffin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Buddy.gd" type="Script" id=5]
+[ext_resource path="res://Buddy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Score.gd" type="Script" id=7]
+
+[sub_resource type="CylinderShape" id=1]
+height = 9.46056
+radius = 2.47793
+
+[sub_resource type="CylinderShape" id=2]
+height = 6.97894
+radius = 5.62934
+
+[node name="Game" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.634798, 0, -0.772678, 0, 1, 0, 0.772678, 0, -0.634798, -26.3723, -0.0791278, -18.1062 )
+
+[node name="Camera" type="Camera" parent="Player"]
+transform = Transform( -1, -2.99004e-08, 8.21505e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 6.88836, -5 )
+current = true
+
+[node name="Floor" parent="." instance=ExtResource( 1 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
+
+[node name="MacGuffin" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.232121, 0, 0.972687, 0, 1, 0, -0.972687, 0, 0.232121, -54.2365, 0.0200577, -19.9474 )
+script = ExtResource( 3 )
+
+[node name="Area" type="Area" parent="MacGuffin"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MacGuffin/Area"]
+shape = SubResource( 1 )
+
+[node name="ConversationPartner" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.679352, 0, 0.733813, 0, 1, 0, -0.733813, 0, 0.679352, -26.4929, 0, -25.1824 )
+script = ExtResource( 5 )
+
+[node name="Area" type="Area" parent="ConversationPartner"]
+transform = Transform( 0.679352, 0, -0.733813, 0, 1, 0, 0.733813, 0, 0.679352, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ConversationPartner/Area"]
+shape = SubResource( 2 )
+
+[node name="Score" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="Score"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 58.0
+margin_bottom = 29.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Score: "
+
+[connection signal="body_entered" from="MacGuffin/Area" to="MacGuffin" method="_on_Area_body_entered"]
+[connection signal="body_entered" from="ConversationPartner/Area" to="ConversationPartner" method="_on_Area_body_entered"]
+[connection signal="body_exited" from="ConversationPartner/Area" to="ConversationPartner" method="_on_Area_body_exited"]
